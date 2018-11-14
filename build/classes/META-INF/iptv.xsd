@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="edu.itq.iptv" targetNamespace="edu.itq.iptv" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="requestIptv">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id_solicitud" type="xs:int"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="responseIptv">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="respuesta" type="xs:string"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.7.8  Built on : May 19, 2018 (07:06:11 BST) -->
+<serviceGroup>
+	<service name="iptvSpringInit" class="edu.itq.iptv.IPtvSpringInit">
+		<description>Servicio que inicializa el contextoSpring</description>
+		<parameter name="serviceTCCL">composite</parameter>
+		<parameter name="ServiceClass">edu.itq.iptv.IPtvSpringInit</parameter>
+		<parameter name="load-on-startup">true</parameter>
+		<operation name="springInit">
+			<messageReceiver class="org.apache.axis2.receivers.RawXMLINOutMessageReceiver"/>
+		</operation>
+	</service>
+    <service name="iptvProveedorDefinicionService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="edu.itq.iptv.IptvProveedorDefinicionServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">edu.itq.iptv.IptvProveedorDefinicionServiceImpl</parameter>
+        <parameter name="ServiceObjectSupplier">org.apache.axis2.extensions.spring.receivers.SpringAppContextAwareObjectSupplier</parameter>
+        <parameter name="SpringBeanName">iptvImpl</parameter>
+        <parameter name="SpringContextLocation">context.xml</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="iptvOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="edu.itq.iptv">
+            <actionMapping>http://itq.edu/ContratarIptv</actionMapping>
+            <outputActionMapping>edu.itq.iptv/iptvPortType/iptvOperationResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
