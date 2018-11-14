@@ -6,3 +6,5 @@
 /org/
 /schemaorg_apache_xmlbeans/
 /services.xml
+/iptvProvDef.wsdl
+/iptvProvDef.xsd

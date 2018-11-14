@@ -10,7 +10,7 @@
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
         <operation name="iptvOperation" mep="http://www.w3.org/ns/wsdl/in-out" namespace="edu.itq.iptv">
-            <actionMapping>http://itq.edu/ContratarIptv</actionMapping>
+            <actionMapping>http://itq.edu/IptvProvDef</actionMapping>
             <outputActionMapping>edu.itq.iptv/iptvPortType/iptvOperationResponse</outputActionMapping>
         </operation>
     </service>

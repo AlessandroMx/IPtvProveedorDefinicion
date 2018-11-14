@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:jms="http://www.springframework.org/schema/jms"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:jee="http://www.springframework.org/schema/jee"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:jms="http://www.springframework.org/schema/jms"  
+    xmlns:p="http://www.springframework.org/schema/p" 
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
     http://www.springframework.org/schema/jms  
-    http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
-    http://www.springframework.org/schema/jee
-    http://www.springframework.org/schema/jee/spring-jee.xsd">
+    http://www.springframework.org/schema/jms/spring-jms-3.0.xsd">  
 	<!-- *********************************** DataSources *********************************** -->
-	<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"
-			value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost/iptv_banco" />
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/iptv" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
-	<!-- bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-		<property name="jndiName" value="java:comp/env/jdbc/MyLocalDB"/> </bean -->
-	<!-- <jee:jndi-lookup id="dataSource" jndi-name="usuariosDS" expected-type="javax.sql.DataSource"/> -->
 	<!-- *********************************** Spring Templates *********************************** -->
-	<bean id="jdbcTemplate"
-		class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"/>
 	</bean>
 	<!-- *********************************** JDBC objects *********************************** -->
-	<bean id="usuarioDao" class="com.springsample.dao.UsuarioDao">
+	<bean id="clienteDao" class="edu.itq.iptv.dao.ClienteDao">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="paqueteDao" class="edu.itq.iptv.dao.PaqueteDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<bean id="solicitudDao" class="edu.itq.iptv.dao.SolicitudDao">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- ************************************ BL objects ************************************ -->
+	<bean id="businessLogic" class="edu.itq.iptv.business.BusinessLogic">
+		<property name="clienteDao" ref="clienteDao" />
+		<property name="paqueteDao" ref="paqueteDao" />
+		<property name="solicitudDao" ref="solicitudDao" />
 	</bean>
 	<!-- *********************************** WEB Service *********************************** -->
 	<bean id="iptvImpl" class="edu.itq.iptv.IptvServiceImpl">
-		<property name="usuarioDao" ref="usuarioDao" />
+		<property name="businessLogic" ref="businessLogic" />
 	</bean>
-	<bean id="applicationContext"
-		class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder"></bean>
+	
+	<bean id="applicationContext" class="org.apache.axis2.extensions.spring.receivers.ApplicationContextHolder"></bean>
 	<!-- *********************************** Transaction manager *********************************** -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 </beans>
