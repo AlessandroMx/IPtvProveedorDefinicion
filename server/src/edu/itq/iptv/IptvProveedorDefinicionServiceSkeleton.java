@@ -13,11 +13,11 @@ public class IptvProveedorDefinicionServiceSkeleton {
     /**
      * Auto generated method signature
      *
-     * @param requestIptv
-     * @return responseIptv
+     * @param requestIptvProvDef
+     * @return responseIptvProvDef
      */
-    public iptv.itq.edu.ResponseIptvDocument iptvOperation(
-        iptv.itq.edu.RequestIptvDocument requestIptv) {
+    public iptv.itq.edu.ResponseIptvProvDefDocument iptvOperation(
+        iptv.itq.edu.RequestIptvProvDefDocument requestIptvProvDef) {
         //TODO : fill this with the necessary business logic
         throw new java.lang.UnsupportedOperationException("Please implement " +
             this.getClass().getName() + "#iptvOperation");

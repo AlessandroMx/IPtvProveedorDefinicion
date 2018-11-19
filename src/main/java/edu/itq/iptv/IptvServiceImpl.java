@@ -7,9 +7,9 @@
 package edu.itq.iptv;
 
 import edu.itq.iptv.business.BusinessLogic;
-import iptv.itq.edu.RequestIptvDocument;
-import iptv.itq.edu.ResponseIptvDocument;
-import iptv.itq.edu.ResponseIptvDocument.ResponseIptv;
+import iptv.itq.edu.RequestIptvProvDefDocument;
+import iptv.itq.edu.ResponseIptvProvDefDocument;
+import iptv.itq.edu.ResponseIptvProvDefDocument.ResponseIptvProvDef;
 
 /**
  * IptvServiceSkeleton java skeleton for the axisService
@@ -18,12 +18,14 @@ public class IptvServiceImpl extends IptvProveedorDefinicionServiceSkeleton {
 
     private BusinessLogic businessLogic;
 
-    public ResponseIptvDocument iptvOperation(RequestIptvDocument requestIptv) {
-        ResponseIptvDocument doc = ResponseIptvDocument.Factory.newInstance();
-        ResponseIptv resp = doc.addNewResponseIptv();
-        
+    public ResponseIptvProvDefDocument iptvOperation(
+            RequestIptvProvDefDocument requestIptv) {
+        ResponseIptvProvDefDocument doc = ResponseIptvProvDefDocument.Factory
+                .newInstance();
+        ResponseIptvProvDef resp = doc.addNewResponseIptvProvDef();
+
         // Obtain parameters from request...
-        int idSolicitud = requestIptv.getRequestIptv().getIdSolicitud();
+        int idSolicitud = requestIptv.getRequestIptvProvDef().getIdSolicitud();
 
         // Call business logic...
         String response = businessLogic.defineService(idSolicitud);

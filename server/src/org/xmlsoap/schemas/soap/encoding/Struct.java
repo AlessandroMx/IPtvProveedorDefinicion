@@ -16,7 +16,7 @@ package org.xmlsoap.schemas.soap.encoding;
 public interface Struct extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Struct.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s8DD820777B825A33F4B69445760ACC88").resolveHandle("structef7btype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Struct.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s46768A74AED6B656B7CE486FEE563142").resolveHandle("structef7btype");
     
     /**
      * Gets the "id" attribute

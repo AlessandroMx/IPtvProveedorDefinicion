@@ -49,18 +49,19 @@ public class IptvProveedorDefinicionServiceMessageReceiverInOut extends org.apac
                     ((methodName = org.apache.axis2.util.JavaUtils.xmlNameToJavaIdentifier(
                             op.getName().getLocalPart())) != null)) {
                 if ("iptvOperation".equals(methodName)) {
-                    iptv.itq.edu.ResponseIptvDocument responseIptv5 = null;
-                    iptv.itq.edu.RequestIptvDocument wrappedParam = (iptv.itq.edu.RequestIptvDocument) fromOM(msgContext.getEnvelope()
-                                                                                                                        .getBody()
-                                                                                                                        .getFirstElement(),
-                            iptv.itq.edu.RequestIptvDocument.class);
+                    iptv.itq.edu.ResponseIptvProvDefDocument responseIptvProvDef5 =
+                        null;
+                    iptv.itq.edu.RequestIptvProvDefDocument wrappedParam = (iptv.itq.edu.RequestIptvProvDefDocument) fromOM(msgContext.getEnvelope()
+                                                                                                                                      .getBody()
+                                                                                                                                      .getFirstElement(),
+                            iptv.itq.edu.RequestIptvProvDefDocument.class);
 
-                    responseIptv5 = skel.iptvOperation(wrappedParam);
+                    responseIptvProvDef5 = skel.iptvOperation(wrappedParam);
 
                     envelope = toEnvelope(getSOAPFactory(msgContext),
-                            responseIptv5, false,
+                            responseIptvProvDef5, false,
                             new javax.xml.namespace.QName("edu.itq.iptv",
-                                "responseIptv"));
+                                "responseIptvProvDef"));
                 } else {
                     throw new java.lang.RuntimeException("method not found");
                 }
@@ -83,13 +84,13 @@ public class IptvProveedorDefinicionServiceMessageReceiverInOut extends org.apac
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        iptv.itq.edu.RequestIptvDocument param, boolean optimizeContent)
+        iptv.itq.edu.RequestIptvProvDefDocument param, boolean optimizeContent)
         throws org.apache.axis2.AxisFault {
         return toOM(param);
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        final iptv.itq.edu.RequestIptvDocument param)
+        final iptv.itq.edu.RequestIptvProvDefDocument param)
         throws org.apache.axis2.AxisFault {
         org.apache.axiom.om.OMXMLParserWrapper builder = org.apache.axiom.om.OMXMLBuilderFactory.createOMBuilder(new javax.xml.transform.sax.SAXSource(
                     new org.apache.axis2.xmlbeans.XmlBeansXMLReader(param,
@@ -103,13 +104,13 @@ public class IptvProveedorDefinicionServiceMessageReceiverInOut extends org.apac
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        iptv.itq.edu.ResponseIptvDocument param, boolean optimizeContent)
+        iptv.itq.edu.ResponseIptvProvDefDocument param, boolean optimizeContent)
         throws org.apache.axis2.AxisFault {
         return toOM(param);
     }
 
     private org.apache.axiom.om.OMElement toOM(
-        final iptv.itq.edu.ResponseIptvDocument param)
+        final iptv.itq.edu.ResponseIptvProvDefDocument param)
         throws org.apache.axis2.AxisFault {
         org.apache.axiom.om.OMXMLParserWrapper builder = org.apache.axiom.om.OMXMLBuilderFactory.createOMBuilder(new javax.xml.transform.sax.SAXSource(
                     new org.apache.axis2.xmlbeans.XmlBeansXMLReader(param,
@@ -124,8 +125,8 @@ public class IptvProveedorDefinicionServiceMessageReceiverInOut extends org.apac
 
     private org.apache.axiom.soap.SOAPEnvelope toEnvelope(
         org.apache.axiom.soap.SOAPFactory factory,
-        iptv.itq.edu.ResponseIptvDocument param, boolean optimizeContent,
-        javax.xml.namespace.QName elementQName)
+        iptv.itq.edu.ResponseIptvProvDefDocument param,
+        boolean optimizeContent, javax.xml.namespace.QName elementQName)
         throws org.apache.axis2.AxisFault {
         org.apache.axiom.soap.SOAPEnvelope envelope = factory.getDefaultEnvelope();
 
@@ -148,21 +149,21 @@ public class IptvProveedorDefinicionServiceMessageReceiverInOut extends org.apac
         org.apache.axiom.om.OMElement param, java.lang.Class type)
         throws org.apache.axis2.AxisFault {
         try {
-            if (iptv.itq.edu.RequestIptvDocument.class.equals(type)) {
+            if (iptv.itq.edu.RequestIptvProvDefDocument.class.equals(type)) {
                 org.apache.axiom.om.OMXMLStreamReaderConfiguration configuration =
                     new org.apache.axiom.om.OMXMLStreamReaderConfiguration();
                 configuration.setPreserveNamespaceContext(true);
 
-                return iptv.itq.edu.RequestIptvDocument.Factory.parse(param.getXMLStreamReader(
+                return iptv.itq.edu.RequestIptvProvDefDocument.Factory.parse(param.getXMLStreamReader(
                         false, configuration));
             }
 
-            if (iptv.itq.edu.ResponseIptvDocument.class.equals(type)) {
+            if (iptv.itq.edu.ResponseIptvProvDefDocument.class.equals(type)) {
                 org.apache.axiom.om.OMXMLStreamReaderConfiguration configuration =
                     new org.apache.axiom.om.OMXMLStreamReaderConfiguration();
                 configuration.setPreserveNamespaceContext(true);
 
-                return iptv.itq.edu.ResponseIptvDocument.Factory.parse(param.getXMLStreamReader(
+                return iptv.itq.edu.ResponseIptvProvDefDocument.Factory.parse(param.getXMLStreamReader(
                         false, configuration));
             }
         } catch (java.lang.Exception e) {
